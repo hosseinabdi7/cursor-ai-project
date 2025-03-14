@@ -2,11 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: write
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -34,9 +30,9 @@ jobs:
           touch out/.nojekyll
           cp out/404.html out/index.html
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/out
           branch: gh-pages
+          folder: frontend/out
           clean: true 
