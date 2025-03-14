@@ -7,6 +7,7 @@ const nextConfig = {
   basePath: '/cursor-ai-project',
   assetPrefix: '/cursor-ai-project/',
   trailingSlash: true,
+  distDir: 'out',
 }
 
 module.exports = nextConfig 
