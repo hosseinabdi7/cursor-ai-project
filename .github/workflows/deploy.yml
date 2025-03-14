@@ -29,6 +29,7 @@ jobs:
         run: |
           cd frontend
           npm run build
+          touch frontend/out/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
