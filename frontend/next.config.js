@@ -8,6 +8,9 @@ const nextConfig = {
   assetPrefix: '/cursor-ai-project/',
   trailingSlash: true,
   distDir: 'out',
+  experimental: {
+    appDir: true
+  }
 }
 
 module.exports = nextConfig 

@@ -23,20 +23,20 @@ jobs:
 
       - name: Install Dependencies
         working-directory: ./frontend
-        run: npm install
+        run: |
+          npm install
+          npm install sharp
 
       - name: Build
         working-directory: ./frontend
-        run: npm run build
-
-      - name: Add .nojekyll file
         run: |
-          touch ./frontend/out/.nojekyll
-          cp ./frontend/out/404.html ./frontend/out/index.html
+          npm run build
+          touch out/.nojekyll
+          cp out/404.html out/index.html
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./frontend/out
-          force_orphan: true 
+          folder: frontend/out
+          branch: gh-pages
+          clean: true 
